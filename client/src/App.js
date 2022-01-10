@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<Index />} />
         <Route path="/home" element={<Home />} />
         <Route path="/form" element={<Form />} />
-        <Route path="/dog/:name" element={<Detail />} />
+        <Route path="/country/:id" element={<Detail />} />
       </Routes>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 const CardContainer = styled.div`
 width: 280px;
 height: 350px;
@@ -15,24 +15,15 @@ margin: 0 auto;
   height: 30%;
 }
 `;
-export default function Card(props) {
+export default function Card({ name, flag, continent, id }) {
   return (
     <CardContainer>
-      <NavLink to="/dog/name">
-        <h2>Name</h2>{" "}
-      </NavLink>
-      <img
-        src="https://t2.ea.ltmcdn.com/es/images/1/8/2/img_enfermedades_mas_comunes_del_dogo_argentino_23281_600.jpg"
-        alt="dog img"
-      />
-      <ul>
-        <p>Temperament</p>
-        <li>Bueno</li>
-        <li>Fuerte</li>
-        <li>Poderoso</li>
-        <p>Peso</p>
-        <li>70kg</li>
-      </ul>
+      <Link to={`/country/${id}`}>
+        <h2>{name}</h2>
+      </Link>
+      <img src={flag} alt="dog img" />
+      <h4>Continent:</h4>
+      <span>{continent}</span>
     </CardContainer>
   );
 }
