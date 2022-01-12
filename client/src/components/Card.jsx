@@ -21,7 +21,7 @@ export default function Card({ name, flag, continent, id }) {
       <Link to={`/country/${id}`}>
         <h2>{name}</h2>
       </Link>
-      <img src={flag} alt="dog img" />
+      <img src={flag} width="260" height="210" alt="dog img" />
       <h4>Continent:</h4>
       <span>{continent}</span>
     </CardContainer>

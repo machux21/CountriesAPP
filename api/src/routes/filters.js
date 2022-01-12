@@ -5,7 +5,7 @@ const router = Router();
 const { Country, Activity } = require("../db.js");
 
 //Order A-Z
-router.get("/az", async (req, res) => {
+router.get("/countries/az", async (req, res) => {
   try {
     const response = await Country.findAll({
       order: [["name", "asc"]],
@@ -17,7 +17,7 @@ router.get("/az", async (req, res) => {
 });
 
 //Order Z-A
-router.get("/za", async (req, res) => {
+router.get("/countries/za", async (req, res) => {
   try {
     const response = await Country.findAll({
       order: [["name", "desc"]],
@@ -62,7 +62,7 @@ router.get("/activity/:ActName", async (req, res) => {
     const response = await Country.findAll({
       include: {
         model: Activity,
-        attributes: ['name'],
+        attributes: ["name"],
         where: {
           name: {
             [Op.iLike]: `%${ActName}`,
@@ -70,9 +70,9 @@ router.get("/activity/:ActName", async (req, res) => {
         },
       },
     });
-    res.json(response)
-  }catch(e){
-    res.status(404).json({error: e.msessage})
+    res.json(response);
+  } catch (e) {
+    res.status(404).json({ error: e.msessage });
   }
 });
 

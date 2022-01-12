@@ -8,9 +8,14 @@ router.get("/", async (req, res) => {
     const response = await Activity.findAll({
       attributes: ["name"],
     });
-    res.json(response);
+
+    res.json(
+      response.map((c) => {
+        return c.name;
+      })
+    );
   } catch (e) {
-    send.status(404).json({ error: e.message });
+    res.status(404).json({ error: e.message });
   }
 });
 
