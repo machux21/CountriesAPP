@@ -1,4 +1,4 @@
-import axios from "axios";
+
 
 // ACTION FILTERS
 export const FILTER_BY_ALPHABET = "FILTER_BY_ALPHABET";
@@ -13,6 +13,7 @@ export const GET_COUNTRY_DETAIL = "GET_COUNTRY_DETAIL";
 export const LOADING = "LOADING";
 export const SEARCH = "SEARCH";
 export const SHOW_ALL_COUNTRIES = "SHOW_ALL_COUNTRIES";
+export const PAGINATION = "PAGINATION"
 //ACTION CREATORS
 function showLoading() {
   return {
@@ -37,6 +38,12 @@ export function searchCountry(name) {
   };
 }
 
+export function setPagination(countries){
+  return{
+    type: PAGINATION,
+    countries
+  }
+}
 //ACTION CREATORS FILTERS
 export function filterByContinent(continent) {
   return {
@@ -44,6 +51,7 @@ export function filterByContinent(continent) {
     continent,
   };
 }
+
 export function filterByAlphabet(order) {
   return function (dispatch) {
     dispatch(showLoading());
@@ -71,19 +79,16 @@ export function filterByPopulation(order) {
   return async function (dispatch) {
     dispatch(showLoading());
     console.log(order);
-    try {
-      const query = await axios.get(
-        `http://localhost:3001/filters/population/${order}`
-      );
-
-      dispatch({
-        type: FILTER_BY_POPULATION,
-        countries: query.data,
-        loading: false,
-      });
-    } catch (e) {
-      console.log(e.message);
-    }
+    return fetch(`http://localhost:3001/filters/population/${order}`)
+      .then((res) => res.json())
+      .then((json) => {
+        dispatch({
+          type: FILTER_BY_POPULATION,
+          countries: json,
+          loading: false,
+        });
+      })
+      .catch((e) => console.log(e.message));
   };
 }
 

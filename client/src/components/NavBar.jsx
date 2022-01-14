@@ -26,7 +26,7 @@ function NavBar({ loading, countries, searchCountry }) {
     <NavContainer>
       <NavLink to="/">Inicio</NavLink>
       <NavLink to="/home">Home</NavLink>
-      <NavLink to="/form">Add New Dog</NavLink>
+      <NavLink to="/form">Add Activity</NavLink>
       <form onSubmit={(e) => handleSubmit(e)}>
         <input
           value={search}

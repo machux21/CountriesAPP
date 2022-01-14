@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { showAll } from "../Redux/actions/actions.js";
+import { showAll } from "../../Redux/actions/actions.js";
 
 //IMPORT COMPONENTS
-import Activity from "./filters/Activity.jsx";
-import Alphabet from "./filters/Alphabet.jsx";
-import Continent from "./filters/Continent.jsx";
-import Population from "./filters/Population.jsx";
+import Activity from "./Activity.jsx";
+import Alphabet from "./Alphabet.jsx";
+import Continent from "./Continent.jsx";
+import Population from "./Population.jsx";
 //STYLED COMPONENTS
 const FilterContainer = styled.div`
   width: 98.6vw;
