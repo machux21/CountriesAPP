@@ -18,8 +18,6 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: row;
-  padding: 10px;
-  border: 3px solid red;
 `;
 
 function Home({ countries, loading, getCountries }) {

@@ -2,15 +2,26 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const Nav = styled.nav`
-  width: 98.5vw;
+  width: 100%;
   height: 80px;
-  padding-top: 50px;
-  border: 3px solid green;
+  margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   flex-direction: row;
 `;
+const IndexButton = styled.button`
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  border: none;
+  color: white;
+  box-shadow: 2px 2px 4px 0px grey;
+  background-color: rgb(191, 6, 3);
+  &:hover{
+    background-color: rgb(141, 8, 1);
+  }
+`
 export default function Pagination({
   countriesLength,
   paginate,
@@ -29,15 +40,14 @@ export default function Pagination({
       {numberOfPages &&
         numberOfPages.map((n) => {
           return (
-            <button
+            <IndexButton
               key={n}
-              style={{ height: "30px" }}
               onClick={() => {
                 paginate(n);
               }}
             >
               {n}
-            </button>
+            </IndexButton>
           );
         })}
     </Nav>

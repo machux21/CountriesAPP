@@ -10,15 +10,25 @@ import Continent from "./Continent.jsx";
 import Population from "./Population.jsx";
 //STYLED COMPONENTS
 const FilterContainer = styled.div`
-  width: 98.6vw;
+  width: 100%;
   height: 100%;
-  border: 3px solid orangered;
   display: flex;
+  margin: 20px auto;
   justify-content: space-around;
   flex-wrap: wrap;
   flex-direction: row;
 `;
-
+const Button = styled.button`
+  height: 40px;
+  width: 70px;
+  background-color: rgb(191, 6, 3);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  &:hover {
+    background-color: rgb(141, 8, 1);
+  }
+`;
 //FILTERS COMPONENT
 function Filters({ showAll }) {
   return (
@@ -27,14 +37,14 @@ function Filters({ showAll }) {
       <Alphabet />
       <Continent />
       <Population />
-      <button
+      <Button
         onClick={(e) => {
           e.preventDefault();
           showAll();
         }}
       >
         Show All
-      </button>
+      </Button>
     </FilterContainer>
   );
 }
