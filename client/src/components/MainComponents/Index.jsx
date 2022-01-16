@@ -6,7 +6,7 @@ const Container = styled.div`
   margin: 0 auto;
   width: 100vw;
   height: 100vh;
-  background-image: url(${Maps});
+  background-image: url("https://bestanimations.com/Earth&Space/Earth/earthglobeanimation/earth-travel-globe-spinning-animated-gif-8.gif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

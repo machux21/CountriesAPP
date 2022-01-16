@@ -1,7 +1,100 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
+const Container = styled.div`
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  p {
+    font-weight: 300;
+  }
+  fieldset {
+    margin: 20px;
+    background-color: rgb(0, 20, 39);
+    border: none;
+    border-radius: 20px;
+  }
+  fieldset legend {
+    height: 60px;
+    width: 500px;
+    background: rgb(141, 8, 1);
+    border-radius: 10px;
+    padding: 4px;
+    line-height: 5px;
+    font-weight: bold;
+    color: white;
+    &:hover {
+      background-color: rgb(191, 6, 3);
+    }
+  }
+  input {
+    width: 300px;
+    height: 40px;
+    margin: 15px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 16px;
+    background-color: rgb(112, 141, 175);
+  }
+  select {
+    width: 300px;
+    height: 40px;
+    background-color: rgb(141, 8, 1);
+    font-size: 16px;
+    padding-left: 5px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    &:hover {
+      border-bottom: 3px solid rgb(112, 141, 175);
+    }
+  }
+  button {
+  }
+  input[disabled] {
+    display: none;
+  }
+`;
+const Button = styled(Link)`
+  margin-top: 10px;
+  display: inline-block;
+  position: relative;
+  left: 20px;
+  height: 40px;
+  width: 120px;
+  background-color: rgb(112, 141, 175);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 40px;
+  color: white;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: rgb(0, 20, 39);
+  }
+`;
+const Submit = styled.button`
+  height: 50px;
+  width: 250px;
+  background-color: rgb(191, 6, 3);
+  font-size: 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  &:hover {
+    background-color: rgb(141, 8, 1);
+  }
+  &[disabled] {
+    display: none;
+  }
+`;
 //handle errors with validate function
 function validate(inputs) {
   const errors = {};
@@ -114,8 +207,8 @@ function Form({ COUNTRIES }) {
   };
 
   return (
-    <>
-      <Link to="/home">Back</Link>
+    <Container>
+      <Button to="/home">Back</Button>
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>
@@ -138,7 +231,6 @@ function Form({ COUNTRIES }) {
               onChange={handleChange}
             />
           </label>
-
           <br />
           <label>
             Duration (Months)
@@ -183,14 +275,15 @@ function Form({ COUNTRIES }) {
             })}
           </ul>
           <br />
-          <input
+          <Submit
             disabled={Object.entries(errors).length === 0 ? false : true}
             type="submit"
-            value="Submit"
-          />
+          >
+            Submit
+          </Submit>
         </fieldset>
       </form>
-    </>
+    </Container>
   );
 }
 function mapStateToProps(state) {

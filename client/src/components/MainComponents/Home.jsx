@@ -46,7 +46,7 @@ function Home({ countries, loading, getCountries }) {
         countriesPerPage={countriesPerPage}
       />
       {loading ? (
-        <h3>Loading...</h3>
+        <img src="https://cdn.dribbble.com/users/587388/screenshots/2676888/globe.gif" alt="world"/>
       ) : (
         <Container>
           {currentCountries.map((c, i) => {

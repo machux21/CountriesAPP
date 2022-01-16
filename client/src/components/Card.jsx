@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 const CardContainer = styled.div`
   width: 250px;
-  height: 250px;
+  height: 260px;
   overflow: hidden;
   background-color: rgb(239, 243, 213);
   border-radius: 10px;
@@ -26,6 +26,7 @@ const CardContainer = styled.div`
   }
   h4 {
     font-weight: 300;
+    margin-bottom: 8px;
   }
 `;
 export default function Card({ name, flag, continent, id }) {
