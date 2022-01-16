@@ -9,6 +9,7 @@ const CardContainer = styled.div`
   border-radius: 10px;
   text-decoration: none;
   margin: 0 auto;
+  padding: 0px;
   transition: transform 0.8s;
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -17,7 +18,7 @@ const CardContainer = styled.div`
     transform: scale(1.3);
   }
   img {
-    width: 100%;
+    width: 250px;
     height: 130px;
   }
   h2 {
