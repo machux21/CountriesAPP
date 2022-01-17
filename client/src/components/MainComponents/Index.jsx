@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Maps from "../../Resources/maps.webp";
 const Container = styled.div`
   margin: 0 auto;
   width: 100vw;

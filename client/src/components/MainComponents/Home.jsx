@@ -7,7 +7,9 @@ import Card from "../Card.jsx";
 import Filters from "../filters/Filters.jsx";
 import Pagination from "../Pagination.jsx";
 import NavBar from "../NavBar.jsx";
-
+//IMAGES
+import NotFound from "../../Resources/NotFound.png";
+import Loading from "../../Resources/loading.gif"
 //styled
 const Container = styled.div`
   width: 98%;
@@ -18,6 +20,12 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: row;
+
+  .not-found {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+  }
 `;
 
 function Home({ countries, loading, getCountries }) {
@@ -46,20 +54,27 @@ function Home({ countries, loading, getCountries }) {
         countriesPerPage={countriesPerPage}
       />
       {loading ? (
-        <img src="https://cdn.dribbble.com/users/587388/screenshots/2676888/globe.gif" alt="world"/>
+        <img
+          src={Loading}
+          alt="world"
+        />
       ) : (
         <Container>
-          {currentCountries.map((c, i) => {
-            return (
-              <Card
-                key={i}
-                name={c.name}
-                flag={c.flag}
-                continent={c.continent}
-                id={c.id}
-              />
-            );
-          })}
+          {currentCountries?.length > 0 ? (
+            currentCountries.map((c, i) => {
+              return (
+                <Card
+                  key={i}
+                  name={c.name}
+                  flag={c.flag}
+                  continent={c.continent}
+                  id={c.id}
+                />
+              );
+            })
+          ) : (
+            <img className="not-found" src={NotFound} alt="not found" />
+          )}
         </Container>
       )}
     </>

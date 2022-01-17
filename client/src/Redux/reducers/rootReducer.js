@@ -7,7 +7,6 @@ import {
   LOADING,
   SEARCH,
   SHOW_ALL_COUNTRIES,
-  PAGINATION,
   FILTER_BY_ALPHABET,
   FILTER_BY_ACTIVITY,
   FILTER_BY_CONTINENT,
@@ -42,11 +41,6 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         countries: state.inmutableCountries,
-      };
-    case PAGINATION:
-      return {
-        ...state,
-        countries: action.countries,
       };
     case FILTER_BY_ALPHABET:
       return {

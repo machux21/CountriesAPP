@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { useParams, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getCountryDetail } from "../../Redux/actions/actions.js";
+
+//styled-components
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
@@ -112,7 +114,7 @@ function Country({ getCountryDetail, loading, country }) {
       <ActivititesContainer>
         <h3>Tourism Activities</h3>
         <ul className="activities-info">
-          {country?.Activities?.length > 0 ? (
+          {country.Activities?.length > 0 ? (
             country.Activities.map((a, i) => {
               return (
                 <li key={i}>

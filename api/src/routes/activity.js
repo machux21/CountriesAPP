@@ -23,6 +23,12 @@ router.post("/", async (req, res) => {
   const { name, difficulty, duration, season, countries } = req.body;
   if (!name || !difficulty || !duration || !season)
     return res.status(404).json("All field must be completed");
+  if (difficulty < 1 || difficulty > 5 || duration < 0)
+    return res
+      .status(404)
+      .json(
+        "Difficulty must contain a value between 1 to 5 and duration must be bigger than 5"
+      );
   try {
     const newActivity = await Activity.create({
       name,

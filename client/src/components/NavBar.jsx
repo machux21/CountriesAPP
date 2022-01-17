@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { searchCountry } from "../Redux/actions/actions.js";
+import World from '../Resources/globe.png'
+
+//styled-components
 const NavContainer = styled.div`
   width: 100%;
   height: 70px;
@@ -10,6 +13,10 @@ const NavContainer = styled.div`
   border-bottom: 3px solid rgb(141, 8, 1);
   display: flex;
   justify-content: space-between;
+
+  form{
+    margin-right: 30px;
+  }
 `;
 const NavUnlisted = styled.ul`
   display: flex;
@@ -28,13 +35,16 @@ const NavUnlisted = styled.ul`
   li:hover {
     color: rgb(191, 6, 3);
   }
+  img{
+    width: 50px;
+    height: 50px;
+  }
 `;
 const Search = styled.input`
   width: 300px;
   height: 40px;
   margin: 15px;
   border: none;
-  color: white;
   border-radius: 5px;
   padding-left: 10px;
   font-size: 16px;
@@ -59,7 +69,6 @@ function NavBar({ loading, countries, searchCountry }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(search);
     searchCountry(search);
     setSearch("");
   };
@@ -67,13 +76,13 @@ function NavBar({ loading, countries, searchCountry }) {
     <NavContainer>
       <NavUnlisted>
         <Link to="/">
-          <li>Index</li>
+          <li><img src={World} alt="world"/></li>
         </Link>
         <Link to="/form">
           <li>Add Activity</li>
         </Link>
       </NavUnlisted>
-      <form style={{ marginRight: "30px" }} onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <Search
           value={search}
           type="text"

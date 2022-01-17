@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+//styled-components
 const Container = styled.div`
   color: white;
   font-size: 24px;
@@ -57,6 +58,11 @@ const Container = styled.div`
   }
   input[disabled] {
     display: none;
+  }
+  form {
+    ul {
+      list-style-type: none;
+    }
   }
 `;
 const Button = styled(Link)`
@@ -157,9 +163,10 @@ function Form({ COUNTRIES }) {
         ...data,
         [e.target.name]: e.target.value,
       });
-      setErrors(validate({ ...data, [e.target.name]: e.target.value }));
+      setErrors(validate({ ...data, [e.target.name]: data[e.target.name] }));
     }
   };
+
   //handle countries select values
   const handleCountries = (e) => {
     if (e.target.value) {

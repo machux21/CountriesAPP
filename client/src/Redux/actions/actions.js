@@ -13,7 +13,7 @@ export const GET_COUNTRY_DETAIL = "GET_COUNTRY_DETAIL";
 export const LOADING = "LOADING";
 export const SEARCH = "SEARCH";
 export const SHOW_ALL_COUNTRIES = "SHOW_ALL_COUNTRIES";
-export const PAGINATION = "PAGINATION"
+
 //ACTION CREATORS
 function showLoading() {
   return {
@@ -38,12 +38,7 @@ export function searchCountry(name) {
   };
 }
 
-export function setPagination(countries){
-  return{
-    type: PAGINATION,
-    countries
-  }
-}
+
 //ACTION CREATORS FILTERS
 export function filterByContinent(continent) {
   return {
