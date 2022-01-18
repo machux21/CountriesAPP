@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
       attributes: ["name"],
     });
 
-    res.json(
+    res.status(200).json(
       response.map((c) => {
         return c.name;
       })
@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
       season,
     });
     await newActivity.addCountries(countries);
-    res.json("Activity was created successfully");
+    res.status(200).json("Activity was created successfully");
   } catch (e) {
     res.status(404).json({ message: e.message });
   }

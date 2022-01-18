@@ -102,7 +102,7 @@ const Submit = styled.button`
   }
 `;
 //handle errors with validate function
-function validate(inputs) {
+export function validate(inputs) {
   const errors = {};
   if (!inputs.name || inputs.name.length < 4) {
     errors.name = "Name must contains at least three letters";
@@ -224,7 +224,12 @@ function Form({ COUNTRIES }) {
           <label>
             Name
             <p style={{ color: "red" }}>{errors.name}</p>
-            <input type="text" name="name" onChange={handleChange} />
+            <input
+              type="text"
+              name="name"
+              placeholder="Activity name..."
+              onChange={handleChange}
+            />
           </label>
           <br />
           <label>
@@ -233,6 +238,7 @@ function Form({ COUNTRIES }) {
             <input
               type="number"
               name="difficulty"
+              placeholder="Number between 1 to 5"
               min="1"
               max="5"
               onChange={handleChange}

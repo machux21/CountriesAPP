@@ -26,7 +26,7 @@ function Population({ filterByPopulation }) {
   return (
     <div>
       <Select name="Population" onChange={(e) => handleChange(e)}>
-        <option defaultValue="">Population</option>
+        <option value="">Population</option>
         <option value="desc">Most populated</option>
         <option value="asc">Least populated</option>
       </Select>

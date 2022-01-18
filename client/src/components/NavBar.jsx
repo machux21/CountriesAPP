@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { searchCountry } from "../Redux/actions/actions.js";
-import World from '../Resources/globe.png'
+import World from "../Resources/globe.png";
 
 //styled-components
 const NavContainer = styled.div`
@@ -14,7 +14,7 @@ const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
-  form{
+  form {
     margin-right: 30px;
   }
 `;
@@ -35,7 +35,7 @@ const NavUnlisted = styled.ul`
   li:hover {
     color: rgb(191, 6, 3);
   }
-  img{
+  img {
     width: 50px;
     height: 50px;
   }
@@ -61,7 +61,7 @@ const SearchButton = styled.button`
     background-color: rgb(191, 6, 3);
   }
 `;
-function NavBar({ loading, countries, searchCountry }) {
+function NavBar({ searchCountry }) {
   const [search, setSearch] = useState("");
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -76,7 +76,9 @@ function NavBar({ loading, countries, searchCountry }) {
     <NavContainer>
       <NavUnlisted>
         <Link to="/">
-          <li><img src={World} alt="world"/></li>
+          <li>
+            <img src={World} alt="world" />
+          </li>
         </Link>
         <Link to="/form">
           <li>Add Activity</li>
@@ -94,9 +96,5 @@ function NavBar({ loading, countries, searchCountry }) {
     </NavContainer>
   );
 }
-function mapStateToProps(state) {
-  return {
-    loading: state.loading,
-  };
-}
-export default connect(mapStateToProps, { searchCountry })(NavBar);
+
+export default connect(null, { searchCountry })(NavBar);

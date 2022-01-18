@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Globe from '../../Resources/globeLanding.gif'
 const Container = styled.div`
   margin: 0 auto;
   width: 100vw;
   height: 100vh;
-  background-image: url("https://bestanimations.com/Earth&Space/Earth/earthglobeanimation/earth-travel-globe-spinning-animated-gif-8.gif");
+  background-image: url(${Globe});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
