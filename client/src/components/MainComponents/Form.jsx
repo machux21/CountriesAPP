@@ -192,7 +192,7 @@ function Form({ COUNTRIES }) {
         duration: `${data.duration} ${data.duration > 1 ? "months" : "month"}`,
       }),
     };
-    await fetch("http://localhost:3001/activity", requestOptions)
+    await fetch("https://countriesapi-machux-2022.herokuapp.com/activity", requestOptions)
       .then((res) => res.json())
       .then((json) => alert(json))
       .catch((e) => alert(e.message));

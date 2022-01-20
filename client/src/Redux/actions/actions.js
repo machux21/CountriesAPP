@@ -5,7 +5,7 @@ export const FILTER_BY_ALPHABET = "FILTER_BY_ALPHABET";
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const FILTER_BY_POPULATION = "FILTER_BY_POPULATION";
-export const FILTER_BY_POPULATION_LESS = "FILTER_BY_POPULATION_LESS"
+
 //GETS
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
@@ -30,7 +30,8 @@ export function showAll() {
 export function searchCountry(name) {
   return function (dispatch) {
     dispatch(showLoading());
-    return fetch(`http://localhost:3001/countries?name=${name}`)
+    //https://countriesapi-machux-2022.herokuapp.com/countries
+    return fetch(`https://countriesapi-machux-2022.herokuapp.com/countries?name=${name}`)
       .then((res) => res.json())
       .then((json) => {
         dispatch({ type: SEARCH, countries: json, loading: false });
@@ -51,7 +52,8 @@ export function filterByContinent(continent) {
 export function filterByAlphabet(order) {
   return function (dispatch) {
     dispatch(showLoading());
-    return fetch(`http://localhost:3001/filters/countries/${order}`)
+    //https://countriesapi-machux-2022.herokuapp.com/countries
+    return fetch(`https://countriesapi-machux-2022.herokuapp.com/filters/countries/${order}`)
       .then((res) => res.json())
       .then((json) => {
         dispatch({ type: FILTER_BY_ALPHABET, countries: json, loading: false });
@@ -59,15 +61,11 @@ export function filterByAlphabet(order) {
       .catch((e) => console.log(e));
   };
 }
-export function filterByPopulationLess(){
-  return{
-    type: FILTER_BY_POPULATION_LESS
-  }
-}
+
 export function filterByActivity(activity) {
   return function (dispatch) {
     dispatch(showLoading());
-    return fetch(`http://localhost:3001/filters/activity/${activity}`)
+    return fetch(`https://countriesapi-machux-2022.herokuapp.com/filters/activity/${activity}`)
       .then((res) => res.json())
       .then((json) =>
         dispatch({ type: FILTER_BY_ACTIVITY, countries: json, loading: false })
@@ -79,7 +77,7 @@ export function filterByPopulation(order) {
   return async function (dispatch) {
     dispatch(showLoading());
     console.log(order);
-    return fetch(`http://localhost:3001/filters/population/${order}`)
+    return fetch(`https://countriesapi-machux-2022.herokuapp.com/filters/population/${order}`)
       .then((res) => res.json())
       .then((json) => {
         dispatch({
@@ -95,7 +93,7 @@ export function filterByPopulation(order) {
 //ACTION CREATORS GETS
 export function getActivities() {
   return function (dispatch) {
-    return fetch("http://localhost:3001/activity")
+    return fetch("https://countriesapi-machux-2022.herokuapp.com/activity")
       .then((res) => res.json())
       .then((json) => dispatch({ type: GET_ACTIVITIES, activities: json }))
       .catch((e) => console.log(e));
@@ -105,7 +103,7 @@ export function getActivities() {
 export function getCountries() {
   return function (dispatch) {
     dispatch(showLoading());
-    return fetch("http://localhost:3001/countries")
+    return fetch("https://countriesapi-machux-2022.herokuapp.com/countries")
       .then((res) => res.json())
       .then((json) =>
         dispatch({ type: GET_COUNTRIES, countries: json, loading: false })
@@ -117,7 +115,7 @@ export function getCountries() {
 export function getCountryDetail(id) {
   return function (dispatch) {
     dispatch(showLoading());
-    return fetch(`http://localhost:3001/countries/${id}`)
+    return fetch(`https://countriesapi-machux-2022.herokuapp.com/countries/${id}`)
       .then((res) => res.json())
       .then((json) => {
         dispatch({ type: GET_COUNTRY_DETAIL, country: json, loading: false });

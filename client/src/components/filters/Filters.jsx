@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { showAll } from "../../Redux/actions/actions.js";
@@ -8,7 +8,6 @@ import Activity from "./Activity.jsx";
 import Alphabet from "./Alphabet.jsx";
 import Continent from "./Continent.jsx";
 import Population from "./Population.jsx";
-import PopulationLess from './PopulationBigger.jsx'
 //STYLED COMPONENTS
 const FilterContainer = styled.div`
   width: 100%;
@@ -38,7 +37,6 @@ function Filters({ showAll }) {
       <Alphabet />
       <Continent />
       <Population />
-      <PopulationLess/>
       <Button
         onClick={(e) => {
           e.preventDefault();
