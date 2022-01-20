@@ -5,6 +5,7 @@ export const FILTER_BY_ALPHABET = "FILTER_BY_ALPHABET";
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const FILTER_BY_POPULATION = "FILTER_BY_POPULATION";
+export const FILTER_BY_POPULATION_LESS = "FILTER_BY_POPULATION_LESS"
 //GETS
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
@@ -58,7 +59,11 @@ export function filterByAlphabet(order) {
       .catch((e) => console.log(e));
   };
 }
-
+export function filterByPopulationLess(){
+  return{
+    type: FILTER_BY_POPULATION_LESS
+  }
+}
 export function filterByActivity(activity) {
   return function (dispatch) {
     dispatch(showLoading());

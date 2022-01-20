@@ -8,6 +8,7 @@ import Activity from "./Activity.jsx";
 import Alphabet from "./Alphabet.jsx";
 import Continent from "./Continent.jsx";
 import Population from "./Population.jsx";
+import PopulationLess from './PopulationBigger.jsx'
 //STYLED COMPONENTS
 const FilterContainer = styled.div`
   width: 100%;
@@ -37,6 +38,7 @@ function Filters({ showAll }) {
       <Alphabet />
       <Continent />
       <Population />
+      <PopulationLess/>
       <Button
         onClick={(e) => {
           e.preventDefault();

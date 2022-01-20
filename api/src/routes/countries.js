@@ -6,28 +6,28 @@ const { Country, Activity } = require("../db.js");
 
 //GET
 router.get("/", async (req, res) => {
-/*
-  //Push data into data base
-  const query = await axios.get("https://restcountries.com/v3/all");
-  await Promise.all(
-    query.data.map((c) =>
-      Country.create({
-        id: c.cca3,
-        name: c.name.common,
-        flag: c.flags[1],
-        continent: c.continents
-          ? c.continents?.join(", ")
-          : "Belongs to no continent",
-        capital: c.capital ? c.capital?.join(" ") : "No capital city",
-        subregion: c.subregion,
-        area: c.area,
-        population: c.population,
-      })
-    )
-  )
-    .then(res.status(200).json("success"))
-    .catch(res.status(404).send("Error"));
-*/
+  //
+  // //Push data into data base
+  // const query = await axios.get("https://restcountries.com/v3/all");
+  // await Promise.all(
+  //   query.data.map((c) =>
+  //     Country.create({
+  //       id: c.cca3,
+  //       name: c.name.common,
+  //       flag: c.flags[0],
+  //       continent: c.continents
+  //         ? c.continents?.join(", ")
+  //         : "Belongs to no continent",
+  //       capital: c.capital ? c.capital?.join(" ") : "No capital city",
+  //       subregion: c.subregion,
+  //       area: c.area,
+  //       population: c.population,
+  //     })
+  //   )
+  // )
+  //   .then(res.status(200).json("success"))
+  //   .catch(res.status(404).send("Error"));
+
   const { name } = req.query;
 
 try {

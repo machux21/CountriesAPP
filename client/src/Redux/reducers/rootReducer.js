@@ -11,6 +11,7 @@ import {
   FILTER_BY_ACTIVITY,
   FILTER_BY_CONTINENT,
   FILTER_BY_POPULATION,
+  FILTER_BY_POPULATION_LESS,
   GET_ACTIVITIES,
   GET_COUNTRY_DETAIL,
   GET_COUNTRIES,
@@ -68,6 +69,11 @@ function rootReducer(state = initialState, action) {
         loading: action.loading,
         countries: action.countries,
       };
+      case FILTER_BY_POPULATION_LESS:
+      return{
+        ...state,
+        countries: state.inmutableCountries.filter(c => c.population < 90000)
+      }
     case GET_COUNTRIES:
       return {
         ...state,
